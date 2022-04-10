@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import UIKit
 
 public class ActivityIndicator: SharedSequenceConvertibleType {
 
@@ -32,11 +33,11 @@ public class ActivityIndicator: SharedSequenceConvertibleType {
     }
 
     func increment() {
-        count.accept(count.value + 1)
+		count.increment()
     }
 
     func decrement() {
-        count.accept(count.value - 1)
+		count.decrement()
     }
 
     public func asSharedSequence() -> SharedSequence<DriverSharingStrategy, Bool> {
@@ -73,5 +74,4 @@ extension ObservableConvertibleType {
     }
 
 }
-
 
