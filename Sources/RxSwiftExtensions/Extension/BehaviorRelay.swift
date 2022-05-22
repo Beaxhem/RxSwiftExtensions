@@ -34,3 +34,11 @@ public extension BehaviorRelay where Element == Int {
 	}
 
 }
+
+public extension BehaviorRelay where Element == Bool {
+
+	func toggle() {
+		accept(!value)
+	}
+
+}
