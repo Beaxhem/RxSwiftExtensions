@@ -77,6 +77,21 @@ public extension ObservableType {
 
 }
 
+public extension ObservableType {
+
+	static func onEnteringForeground<T>(start: Bool, _ action: @escaping () -> Observable<T>) -> Observable<T> {
+		let notification = NotificationCenter.default.rx
+			.notification(UIApplication.willEnterForegroundNotification)
+			.mapToVoid()
+		let res = start ? notification.startWith(()) : notification
+
+		return res.flatMapLatest { _ in
+			action()
+		}
+	}
+
+}
+
 public extension SharedSequenceConvertibleType {
 
 	/// shortcut for `.do(onNext:,onCompleted:)`
