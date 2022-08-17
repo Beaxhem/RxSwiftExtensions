@@ -5,6 +5,7 @@
 //  Created by Ilya Senchukov on 09.01.2022.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -55,7 +56,7 @@ public extension ObservableType {
 
 }
 
-extension ObservableType {
+public extension ObservableType {
 
 	func resigningFirstResponder<Owner: UIViewController>(
 		owner: Owner,
